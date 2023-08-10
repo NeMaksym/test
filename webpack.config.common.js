@@ -3,11 +3,9 @@ const CopyPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-    mode: 'development',
     entry: {
         controller: './src/js/controller.js',
     },
-    devtool: 'inline-source-map',
     plugins: [
         new HtmlWebpackPlugin({
             title: 'Forkify',
@@ -19,7 +17,7 @@ module.exports = {
     ],
     output: {
         filename: '[name].bundle.js',
-        path: path.resolve(__dirname, 'root'),
+        path: path.resolve(__dirname, 'dist'),
         clean: true,
     },
     module: {
