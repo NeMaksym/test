@@ -1,27 +1,20 @@
-name: Build and release
-
-on:
-  push:
-    branches: ["main"]
-  workflow_dispatch:
-
+name: Build and Deploy
+on: [push]
 permissions:
   contents: write
-
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout 🛎️
         uses: actions/checkout@v3
-        
-      - name: Install deps
-        uses: npm ci
-        
-      - name: Build
-        uses: npm run build
-        
+
+      - name: Install and Build 🔧
+        run: |
+          npm ci
+          npm run build
+
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: dist
+          folder: build # The folder the action should deploy.
