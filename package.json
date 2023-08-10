@@ -9,6 +9,7 @@
     "author": "Kateryna H.",
     "license": "ISC",
     "devDependencies": {
+        "copy-webpack-plugin": "^11.0.0",
         "css-loader": "^6.8.1",
         "eslint": "^8.44.0",
         "eslint-config-prettier": "^8.8.0",

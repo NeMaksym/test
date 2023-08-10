@@ -1,4 +1,5 @@
 const path = require('path')
+const CopyPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
@@ -10,6 +11,9 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: 'Forkify',
             template: 'src/index.html',
+        }),
+        new CopyPlugin({
+            patterns: [{ from: 'public/img', to: 'img' }],
         }),
     ],
     output: {
